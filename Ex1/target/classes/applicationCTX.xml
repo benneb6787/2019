@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+	bean은 하나의 객체로 id에 class명을 class에 package_path를 넣음 
+	property를 통해 변수를 지정해주고 다른 클레스를 참조한다면 ref를 사용해서 정의
+	property의 name에 들어가는 부분은 각 부분을 setter로 지정한 부분 => getFirstNum => firstNum
+	-->
+	<bean id="Calculator" class="com.javalec.calculator.Calculator"/>
+	
+	<bean id="MyCalculator" class="com.javalec.calculator.MyCalculator">
+		<property name="carculator">
+			<ref bean="Calculator"></ref>
+		</property>
+		<property name="firstNum" value="50"></property>
+		<property name="secondNum" value="20"></property>
+	</bean>
+</beans>
