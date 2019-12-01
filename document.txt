@@ -1,2 +1,15 @@
-안녕하세요
-테스트합니다
+git 사용법
+레파지토리를 생성
+앞으로 올려질 폴더를 생성 후 그 위치로 변경
+git clone 해당레파지토리위치(https://github.com/~~) -> warming
+cd 레파지토리명
+git add 업로드할대상(모든 경우 .)
+git commit -m "부가설명"
+git push origin master
+
+
+<add 후의 상태확인>
+git status
+git reset 내릴대상
+<원래상태복구>
+git checkout -- 복구시킬파일명
