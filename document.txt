@@ -13,3 +13,11 @@ git status
 git reset 내릴대상
 <원래상태복구>
 git checkout -- 복구시킬파일명
+
+
+
+
+
+
+<spring document>
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans
