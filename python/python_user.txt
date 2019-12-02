@@ -1,0 +1,64 @@
+class User:
+    # 클래스 변수
+    count = 0
+
+    # 인스턴스 변수 설정
+    def __init__(self, name, email, password):	//특수 메소드
+        self.name = name
+        self.email = email
+        self.password = password
+        count += 1
+
+        self.following_list = []    # 이 유저가 팔로우하는 유저 리스트
+        self.followers_list = []    # 이 유저를 팔로우하는 유저 리스트
+
+    # 인스턴스 출럭하기
+    def __str__(self, another_user):		//더블언더스코어(던더) 던더에스티알 - 인스턴트 출력
+        return "사용자: {}, 이메일: {}, 비밀번호: ******".format(self.name, self.email)
+
+    #클래스 메소드 - 클래스 변수만을 사용할 때 사용함
+    @classmethod
+    def number_of_users(cls):			//class메소드의 첫번째 인자값은 cls
+        print("총 유저 수는: {}입니다".format(cls.count))
+
+
+    # 팔로우
+    def follow(self, another_user):
+        self.following_list.append(another_user)
+        another_user.followers_list.append(self)
+        # 코드를 입력하세요
+
+    # 내가 몇 명을 팔로우하는지 리턴
+    def num_following(self):
+        return len(self.following_list)
+        # 코드를 입력하세요
+
+    # 나를 몇 명이 팔로우하는지 리턴
+    def num_followers(self):
+        return len(self.followers_list)
+        # 코드를 입력하세요
+
+# 유저들 생성
+user1 = User("Young", "young@codeit.kr", "123456")
+user2 = User("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
+user3 = User("Taeho", "taeho@codeit.kr", "123abc")
+user4 = User("Lisa", "lisa@codeit.kr", "abc123")
+
+# 유저마다 서로 관심 있는 유저를 팔로우
+user1.follow(user2)
+user1.follow(user3)
+user2.follow(user1)
+user2.follow(user3)
+user2.follow(user4)
+user4.follow(user1)
+
+# 유저 이름, 자신의 팔로워 수, 자신이 팔로우하는 사람 수를 출력합니다
+print(user1.name, user1.num_followers(), user1.num_following())
+print(user2.name, user2.num_followers(), user2.num_following())
+print(user3.name, user3.num_followers(), user3.num_following())
+print(user4.name, user4.num_followers(), user4.num_following())
+
+# 인스턴스 출력 & 클래스 변수 
+print(user1)
+print(User.count)
+User.number_of_users()

@@ -1,0 +1,63 @@
+class User:
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.password = password
+
+info_string = "강영훈,younghoon@codeit.kr,123456"
+info_list = ["이윤수", "yoonsoo@codeit.kr", "abcdef"]
+
+# 유저 인스턴스 만들기 (1): 문자열로 인스턴스 만들기
+parameter_list = info_string.split(",") # split 메소드를 사용해서 쉼표(,)를 기준으로 문자열을 리스트로 분리한다
+
+# 각 변수에 분리된 문자열 각각 저장
+younghoon_name = parameter_list[0]
+younghoon_email = parameter_list[1]
+younghoon_password = parameter_list[2]
+
+younghoon = User(younghoon_name, younghoon_email, younghoon_password)
+
+# 유저 인스턴스 만들기 (2): 리스트로 인스턴스 만들기
+yoonsoo_name = info_list[0]
+yoonsoo_email = info_list[1]
+yoonsoo_password = info_list[2]
+
+yoonsoo = User(yoonsoo_name, yoonsoo_email, yoonsoo_password)
+
+# 인스턴스가 제대로 생성되었는지 확인
+print(younghoon.name, younghoon.email, younghoon.password)
+print(yoonsoo.name, yoonsoo.email, yoonsoo.password)
+
+
+
+
+
+
+#간단히
+class User:
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.password = password
+
+    @classmethod
+    def from_string(cls, string_param):
+        parameter_list = string_param.split(",")
+        name = parameter_list[0]
+        email = parameter_list[1]
+        password = parameter_list[2]
+        return cls(name, email, password)
+       
+    @classmethod
+    def from_list(cls, list_param):
+        name = list_param[0]
+        email = list_param[1]
+        password = list_param[2]
+        return cls(name, email, password)
+
+# 유저 생성 및 초기값 설정
+younghoon = User.from_string("강영훈,younghoon@codeit.kr,123456")
+yoonsoo = User.from_list(["이윤수", "yoonsoo@codeit.kr", "abcdef"])
+
+print(younghoon.name, younghoon.email, younghoon.password)
+print(yoonsoo.name, yoonsoo.email, yoonsoo.password)
